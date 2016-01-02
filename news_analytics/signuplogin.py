@@ -19,8 +19,8 @@ def usersignup(request):
         email=request.POST['email']
       
         user=User.objects.create_user(username, email, password)
-        print ("after usersignup")
-        #return loginsuccess(request)
+
+        return loginpage(request)
         
 
 
