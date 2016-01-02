@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>OverNight</title>
+
+    <!-- Bootstrap core CSS -->
+   
+	<link rel="stylesheet" href="{% static 'news_analytics/bootstrap-3.3.2-dist/css/bootstrap.min.css' %}" />
+	<!-- Custom styles for this template    -->
+	<link rel="stylesheet" type="text/css" href="{% static 'news_analytics/css/starter-template.css' %}" /> 
+	<link rel="stylesheet" type="text/css" href="{% static 'news_analytics/css/skel.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'news_analytics/css/style.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'news_analytics/css/style-xlarge.css' %}" />
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="{% static 'news_analytics/js/jquery.min.js' %}"></script>
+		<script src="{% static 'news_analytics/js/skel.min.js' %}"></script>
+		<script src="{% static 'news_analytics/js/skel-layers.min.js' %}"></script>
+		<script src="{% static 'news_analytics/js/init.js' %}"></script>
+</head>
+
+  <div id="top">
+
+ 
+<header id="header" class="skel-layers-fixed">
+<!--<h1><a href="www.overnight.asia.com">OverNight</a></h1>-->
+<a href="http://www.overnight.asia/"><img align="left" height= 120 px width=130px src="{% static 'news_analytics/css/icon1.png' %}"/></a>
+<nav id="nav">
+<ul>
+<li><a href="#" class="button special">Sign In/Sign Up</a></li>
+</ul>
+</nav>
+</header>
+
+
+<section id="two" class="wrapper style2">
+<div class="container">
+<div class="form_template">
+<form action="/get_news/" method="post" name="searchForm">
+<div class="form-group">
+{% csrf_token %}
+                  
+               
+<br><br>
+<center><p><h4><b><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hey there! What's on your thoughts? &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></font></p></center></h4>
+			<header class="major">
+
+			<input type="searchbox"  id="search_keyword" name="search_keyword" placeholder="Ask Us">&nbsp;&#128269;
+
+
+			<br>	
+			</header>
+	</section>
+</form>
+      </div>
+
+	<div >
+
+            {% for eachevent in data %}
+		   		{% if eachevent.Message %}
+		   			    <p style="text-indent: 15em;"><font color="white" >{{eachHotel.Message }}</font></p>
+
+		   		{% else %}
+		          <div class="pricing-table">
+					  <table>
+                    {% if eachevent.name %}
+                         <tr><div class="pricing-table-header"><strong><a href= {{eachevent.url}}>{{eachevent.name}}</a></strong></tr></div>
+<tr><a href={{eachevent.url}} >
+<img style="margin: 10px 40px 0px 0px" align="right" overflow= auto float= right height= 150px width=160px src={{eachevent.cover_image_url}} /></a></tr>
+                        <br>
+                    {% endif %}
+		   {% if eachevent.content %}
+                        <tr>{{eachevent.content }}<tr>
+                        <br>
+			
+                    {% endif %}
+	
+
+		<br>
+			<input type="Submit" id="submitButton" name="Run" value="See Events Now" />
+		   {% endif %}
+
+            {% endfor %}
+
+
+
+    <!-- /.container -->
+</div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="{% static 'news_analytics/bootstrap-3.3.2-dist/js/bootstrap.min.js' %}"></script>
+    <!--<script src="{% static 'news_analytics/js/global.js' %}"></script>-->
+ 
+
+<div class="copyright"> </div>
+
+<!-- Footer -->
+<footer id="footer">
+		
+		<div class="row double">
+		<div class="7u">
+		<div class="row collapse-at-2">
+		<div class="6u">
+		<ul class="copyright">
+				<li><a href="www.overnight.asia.com">About Us</a></li>
+				<li><a href="www.overnight.asia.com">Partners</a></li>
+				<li><a href="www.overnight.asia.com">Support</a></li>
+				<li><a href="www.overnight.asia.com">Join Us</a></li>
+		</ul>
+								
+		</div>
+		</div>
+
+		<div class="6u">
+							
+		<ul class="copyright">
+		<li>All material herein &copy;2015 Overnight Company Pte. Ltd.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All Rights Reserved.  OVERNIGHT &reg;is a registered trademark of AGIP LLC. Used under license by OVERNIGHT Company Pte.Ltd.</li>
+		</ul>
+		</div>
+		</div>
+		<ul class="icons">
+		<li><a href="https://www.twitter.com/overnightasia" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+		<li><a href="https://www.facebook.com/overnightasia" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+		<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+		<li><a href="https://www.linkedin.com/company/overnight-asia" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+		<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+		</ul>
+		
+</div>
+		</footer>
+ 
+
+  
+</body>
+
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    <link href="bookingstyle.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'news_analytics/css/bookingstyle.css' %}" />
+  
+
+    
+ 
+  </head>
+<body>
+<form action="/validateuser/" method="POST">
+{% csrf_token %}
+  <!--  General -->
+  <div class="form-group">
+    <h2 class="heading">Login</h2>
+    <div class="controls">
+      <input type="text" id="name" placeholder="UserName"  name="name">
+      
+    </div>
+    <div class="controls">
+      <input type="password" id="password"  placeholder="Password"name="password">
+      
+    </div>       
+
+   
+            <button type="submit"  value="Submit" class="col-1-4">Login</button>
+      </div>  
+  </div> <!-- /.form-group -->
+</form>
+ 
+</body>
+</html>
