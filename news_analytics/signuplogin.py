@@ -17,10 +17,12 @@ def usersignup(request):
         password = request.POST['password']
         repassword = request.POST['repassword']
         email=request.POST['email']
-      
-        user=User.objects.create_user(username, email, password)
 
+    if repassword==password:
+        user=User.objects.create_user(username, email, password)
         return loginpage(request)
+    else:
+        return HttpResponse("Sigunp unsuccesful")
         
 
 
