@@ -11,13 +11,13 @@ def signuppage(request):
 
 # api call to alchemy to get content
 def get_content(request):
-    print "here"
+    print ("here")
     res = ''
     if request.method == 'POST':
         params = request.POST
         val = params.get('search_keyword')
-        print val
+        print (val)
         res = sc.getData(val)
-        print "outside"
+        print ("outside")
     # return HttpResponse(json.dumps({'data': res}), content_type="application/json")
     return render(request, 'landingPage.html', {'data': res})

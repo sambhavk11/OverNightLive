@@ -35,12 +35,10 @@ def validateuser(request):
     if user is not None:
     # the password verified for the user
        if user.is_active:
-           errordet=errorpage(request)
-           return errordet
+
+           return render(request,'landingPage.html')
        else:
-           errordet=errorpage(request)
-           return errordet
+           return HttpResponse("User Inactive")
     else:
     # the authentication system was unable to verify the username and password
-        errordet=errorpage(request)
-        return errordet
+        return HttpResponse("User Cannot be Authenticated. Check Username or password")

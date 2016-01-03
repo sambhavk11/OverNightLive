@@ -3,7 +3,7 @@ import requests
 
 def getDetails(param):
     url = "https://api.musement.com"+param
-    print url
+    print (url)
     payload = {
       "apikey": "78d01615d38f506c3f10b2d9e1f5b219",
       "Content-Type": "application/json",
