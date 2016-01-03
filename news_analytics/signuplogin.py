@@ -30,13 +30,15 @@ def validateuser(request):
     if request.method == 'POST':
        request_context = RequestContext(request)
        logusername = request.POST.get('username',False)
+       print(logusername)
        logpassword = request.POST.get('password',False)
+       print(logpassword)
        user = authenticate(username=logusername,password=logpassword)
+
     if user is not None:
     # the password verified for the user
        if user.is_active:
-
-           return render(request,'landingPage.html')
+           return HttpResponse("Login successful")
        else:
            return HttpResponse("User Inactive")
     else:
