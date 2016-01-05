@@ -1,7 +1,6 @@
 from django.shortcuts import render
-import json
-from django.http import HttpResponse
-import search_call as sc
+
+import museapi as mus
 
 # Create your views here.
 def landing_page(request):
@@ -17,7 +16,8 @@ def get_content(request):
         params = request.POST
         val = params.get('search_keyword')
         print (val)
-        res = sc.getData(val)
+        res = mus.getDetails(val)
+        print (res)
         print ("outside")
     # return HttpResponse(json.dumps({'data': res}), content_type="application/json")
     return render(request, 'landingPage.html', {'data': res})

@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+#from django.conf import settings
+#from django.conf.urls.static import static
 
 urlpatterns = patterns('',
     # Examples:
@@ -13,7 +15,7 @@ urlpatterns = patterns('',
     url(r'^usersignup/', 'news_analytics.signuplogin.usersignup'),
     url(r'^loginpage/', 'news_analytics.signuplogin.loginpage'),
     url(r'^validateuser/', 'news_analytics.signuplogin.validateuser'),
-    url(r'^errorpage/', 'news_analytics.signuplogin.errorpage'),
+    url(r'^errorpage/', 'news_analytics.signuplogin.errorpage')
     
 
 )
