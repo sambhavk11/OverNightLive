@@ -4,6 +4,9 @@ from django.http import HttpResponse
 import search_call as sc
 from  django.contrib.auth.models import User
 
+
+def signuppage(request):
+    return render(request, 'signup.html')
 # Create your views here.
 def landing_page(request):
     return render(request, 'landingPage.html')
