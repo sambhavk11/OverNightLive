@@ -12,11 +12,11 @@ def getDetails(param):
       "cache-control":"no-cache",
     }
     res = requests.get(url,params=payload)
-    jres=res.text
-    return jres
+#    jres=res.text
+#   return jres
 
-    #with open("dummy.json", 'w') as f:
-     #    f.write(res.text)
+    with open("dummy.json", 'w') as f:
+         f.write(res.text)
 
 
 #getNews("/api/v3/categories")
